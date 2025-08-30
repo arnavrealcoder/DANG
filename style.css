@@ -1,0 +1,138 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #000010, #001122);
+    color: white;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background: #111;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+  }
+  .navbar li { margin: 0 20px; }
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .navbar a:hover { color: gold; }
+  
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    position: relative;
+  }
+  .hero h1::after {
+    content: "✨";
+    position: absolute;
+    top: -20px;
+    right: -40px;
+    font-size: 2rem;
+    animation: twinkle 2s infinite alternate;
+  }
+  .hero p::before {
+    content: "🚀 ";
+  }
+  
+  /* Twinkle animation */
+  @keyframes twinkle {
+    0% { opacity: 0.3; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(-5px); }
+  }
+  
+  /* Planets Grid */
+  .planet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    gap: 30px;
+    justify-content: center;
+    margin: 50px 0;
+  }
+  
+  /* Planet Styling using pseudo-elements */
+  .planet {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+  }
+  .planet::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    top: -10%;
+    left: -10%;
+    opacity: 0.2;
+  }
+  .planet::after {
+    content: attr(class);
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: cyan;
+  }
+  
+  /* Colors for planets using pseudo-class :nth-child */
+  .planet:nth-child(1) { background: #b3b3b3; } /* Mercury */
+  .planet:nth-child(2) { background: #f2d16b; } /* Venus */
+  .planet:nth-child(3) { background: #3a9ad9; } /* Earth */
+  .planet:nth-child(4) { background: #d14a36; } /* Mars */
+  .planet:nth-child(5) { background: #d1b07b; } /* Jupiter */
+  .planet:nth-child(6) { background: #f2e6b3; } /* Saturn */
+  .planet:nth-child(7) { background: #7ed1e6; } /* Uranus */
+  .planet:nth-child(8) { background: #3569d1; } /* Neptune */
+  
+  /* Ring effect for Saturn */
+  .planet.saturn::before {
+    border: 3px solid #f2e6b3;
+    transform: rotate(20deg);
+  }
+  
+  /* Hover effects using pseudo-elements */
+  .planet:hover::before {
+    box-shadow: 0 0 20px 5px yellow;
+    opacity: 0.5;
+  }
+  
+  /* Section headings decoration */
+  section h2::before {
+    content: "🪐 ";
+  }
+  section h2::after {
+    content: " 🌠";
+  }
+  
+  /* Contact Section */
+  #contact {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+  }
+  
